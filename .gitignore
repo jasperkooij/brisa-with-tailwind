@@ -1,39 +1,4 @@
-.DS_Store
+build
 node_modules
-_brisa
-
-# Build output
-**/build/*
-!**/docs/**/build/*
-**/out/*
-**/out-*/*
-**/dist/*
-packages/brisa/cli.js
-packages/brisa/out
-packages/brisa/jsx-runtime/
-packages/brisa/jsx-dev-runtime/
-packages/brisa/client/
-packages/brisa/client-simplified/
-packages/brisa/server/
-packages/brisa/compiler/
-packages/brisa/macros/
-packages/brisa/build
-packages/brisa/test
-
-# Docs
-mydb.sqlite
-examples/**/bun.lockb
-
-tsconfig.tsbuildinfo
-
-# Editors
-.vscode
-.idea
-
-# Deployment
-.vercel*
+out
 .vercel
-
-## Panda
-styled-system
-styled-system-studio
