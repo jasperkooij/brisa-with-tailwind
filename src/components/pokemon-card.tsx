@@ -8,7 +8,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
           <img
               src={`/_next/image?url=${pokemon.cover}&w=600&q=75`}
               alt={pokemon.name}
-            class="jk object-cover object-center w-full grayscale-[0.1] group-hover:grayscale-0 h-full rounded-md group-hover:scale-105 transition-all"
+            class="object-cover object-center w-full grayscale-[0.1] group-hover:grayscale-0 h-full rounded-md group-hover:scale-105 transition-all"
           />
         </div>
         <div class="p-6">
