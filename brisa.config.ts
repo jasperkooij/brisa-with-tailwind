@@ -5,7 +5,7 @@ import tailwindcss from 'brisa-tailwindcss';
 import vercel from 'brisa-adapter-vercel';
 
 export default {
-  output: 'node', // or 'static'
+  output: 'static', // or 'static'
   integrations: [tailwindcss()],
   outputAdapter: vercel({
     // see below for options that can be set here
