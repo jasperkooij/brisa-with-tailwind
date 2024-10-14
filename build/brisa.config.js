@@ -1,4 +1,4 @@
-import { createRequire } from "node:module";
+// @bun
 var __create = Object.create;
 var __getProtoOf = Object.getPrototypeOf;
 var __defProp = Object.defineProperty;
@@ -16,7 +16,6 @@ var __toESM = (mod, isNodeMode, target) => {
   return to;
 };
 var __commonJS = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
-var __require = /* @__PURE__ */ createRequire(import.meta.url);
 
 // node_modules/graceful-fs/polyfills.js
 var require_polyfills = __commonJS((exports, module) => {
@@ -301,7 +300,7 @@ var require_polyfills = __commonJS((exports, module) => {
       return false;
     }
   }
-  var constants = __require("constants");
+  var constants = import.meta.require("constants");
   var origCwd = process.cwd;
   var cwd = null;
   var platform = process.env.GRACEFUL_FS_PLATFORM || process.platform;
@@ -420,7 +419,7 @@ var require_legacy_streams = __commonJS((exports, module) => {
       }
     }
   }
-  var Stream = __require("stream").Stream;
+  var Stream = import.meta.require("stream").Stream;
   module.exports = legacy;
 });
 
@@ -732,11 +731,11 @@ var require_graceful_fs = __commonJS((exports, module) => {
       retryTimer = setTimeout(retry, 0);
     }
   }
-  var fs = __require("fs");
+  var fs = import.meta.require("fs");
   var polyfills = require_polyfills();
   var legacy = require_legacy_streams();
   var clone = require_clone();
-  var util = __require("util");
+  var util = import.meta.require("util");
   var gracefulQueue;
   var previousSymbol;
   if (typeof Symbol === "function" && typeof Symbol.for === "function") {
@@ -786,7 +785,7 @@ var require_graceful_fs = __commonJS((exports, module) => {
     if (/\bgfs4\b/i.test(process.env.NODE_DEBUG || "")) {
       process.on("exit", function() {
         debug(fs[gracefulQueue]);
-        __require("assert").equal(fs[gracefulQueue].length, 0);
+        import.meta.require("assert").equal(fs[gracefulQueue].length, 0);
       });
     }
   }
@@ -804,7 +803,7 @@ var require_graceful_fs = __commonJS((exports, module) => {
 
 // node_modules/enhanced-resolve/lib/CachedInputFileSystem.js
 var require_CachedInputFileSystem = __commonJS((exports, module) => {
-  var nextTick = __require("process").nextTick;
+  var nextTick = import.meta.require("process").nextTick;
   var dirname = (path) => {
     let idx = path.length - 1;
     while (idx >= 0) {
@@ -1164,7 +1163,7 @@ var require_CachedInputFileSystem = __commonJS((exports, module) => {
 
 // node_modules/tapable/lib/Hook.js
 var require_Hook = __commonJS((exports, module) => {
-  var util = __require("util");
+  var util = import.meta.require("util");
   var deprecateContext = util.deprecate(() => {
   }, "Hook.context is deprecated and will be removed");
   var CALL_DELEGATE = function(...args) {
@@ -2140,7 +2139,7 @@ var require_AsyncSeriesWaterfallHook = __commonJS((exports, module) => {
 
 // node_modules/tapable/lib/HookMap.js
 var require_HookMap = __commonJS((exports, module) => {
-  var util = __require("util");
+  var util = import.meta.require("util");
   var defaultFactory = (key, hook) => hook;
 
   class HookMap {
@@ -2291,7 +2290,7 @@ var require_identifier = __commonJS((exports, module) => {
 
 // node_modules/enhanced-resolve/lib/util/path.js
 var require_path = __commonJS((exports) => {
-  var path = __require("path");
+  var path = import.meta.require("path");
   var CHAR_HASH = "#".charCodeAt(0);
   var CHAR_SLASH = "/".charCodeAt(0);
   var CHAR_BACKSLASH = "\\".charCodeAt(0);
@@ -3856,7 +3855,7 @@ var require_JoinRequestPlugin = __commonJS((exports, module) => {
 
 // node_modules/enhanced-resolve/lib/MainFieldPlugin.js
 var require_MainFieldPlugin = __commonJS((exports, module) => {
-  var path = __require("path");
+  var path = import.meta.require("path");
   var DescriptionFileUtils = require_DescriptionFileUtils();
   var alreadyTriedMainField = Symbol("alreadyTriedMainField");
   module.exports = class MainFieldPlugin {
@@ -4445,7 +4444,7 @@ var require_UseFilePlugin = __commonJS((exports, module) => {
 var require_ResolverFactory = __commonJS((exports) => {
   function processPnpApiOption(option) {
     if (option === undefined && versions.pnp) {
-      const _findPnpApi = __require("module").findPnpApi;
+      const _findPnpApi = import.meta.require("module").findPnpApi;
       if (_findPnpApi) {
         return {
           resolveToUnqualified(request, issuer, opts) {
@@ -4546,7 +4545,7 @@ var require_ResolverFactory = __commonJS((exports) => {
     }
     return result;
   }
-  var versions = __require("process").versions;
+  var versions = import.meta.require("process").versions;
   var Resolver = require_Resolver();
   var { getType, PathType } = require_path();
   var SyncAsyncFileSystemDecorator = require_SyncAsyncFileSystemDecorator();
@@ -4956,7 +4955,7 @@ var require_jiti = __commonJS((exports, module) => {
     var __webpack_exports__ = {};
     (() => {
       __webpack_require__.d(__webpack_exports__, { default: () => createJiti });
-      const external_node_os_namespaceObject = __require("node:os");
+      const external_node_os_namespaceObject = import.meta.require("os");
       var astralIdentifierCodes = [509, 0, 227, 0, 150, 4, 294, 9, 1368, 2, 2, 1, 6, 3, 41, 2, 5, 0, 166, 1, 574, 3, 9, 9, 370, 1, 81, 2, 71, 10, 50, 3, 123, 2, 54, 14, 32, 10, 3, 1, 11, 3, 46, 10, 8, 0, 46, 9, 7, 2, 37, 13, 2, 9, 6, 1, 45, 0, 13, 2, 49, 13, 9, 3, 2, 11, 83, 11, 7, 0, 3, 0, 158, 11, 6, 9, 7, 3, 56, 1, 2, 6, 3, 1, 3, 2, 10, 0, 11, 1, 3, 6, 4, 4, 193, 17, 10, 9, 5, 0, 82, 19, 13, 9, 214, 6, 3, 8, 28, 1, 83, 16, 16, 9, 82, 12, 9, 9, 84, 14, 5, 9, 243, 14, 166, 9, 71, 5, 2, 1, 3, 3, 2, 0, 2, 1, 13, 9, 120, 6, 3, 6, 4, 0, 29, 9, 41, 6, 2, 3, 9, 0, 10, 10, 47, 15, 406, 7, 2, 7, 17, 9, 57, 21, 2, 13, 123, 5, 4, 0, 2, 1, 2, 6, 2, 0, 9, 9, 49, 4, 2, 1, 2, 4, 9, 9, 330, 3, 10, 1, 2, 0, 49, 6, 4, 4, 14, 9, 5351, 0, 7, 14, 13835, 9, 87, 9, 39, 4, 60, 6, 26, 9, 1014, 0, 2, 54, 8, 3, 82, 0, 12, 1, 19628, 1, 4706, 45, 3, 22, 543, 4, 4, 5, 9, 7, 3, 6, 31, 3, 149, 2, 1418, 49, 513, 54, 5, 49, 9, 0, 15, 0, 23, 4, 2, 14, 1361, 6, 2, 16, 3, 6, 2, 1, 2, 4, 101, 0, 161, 6, 10, 9, 357, 0, 62, 13, 499, 13, 983, 6, 110, 6, 6, 9, 4759, 9, 787719, 239], astralIdentifierStartCodes = [0, 11, 2, 25, 2, 18, 2, 1, 2, 14, 3, 13, 35, 122, 70, 52, 268, 28, 4, 48, 48, 31, 14, 29, 6, 37, 11, 29, 3, 35, 5, 7, 2, 4, 43, 157, 19, 35, 5, 35, 5, 39, 9, 51, 13, 10, 2, 14, 2, 6, 2, 1, 2, 10, 2, 14, 2, 6, 2, 1, 68, 310, 10, 21, 11, 7, 25, 5, 2, 41, 2, 8, 70, 5, 3, 0, 2, 43, 2, 1, 4, 0, 3, 22, 11, 22, 10, 30, 66, 18, 2, 1, 11, 21, 11, 25, 71, 55, 7, 1, 65, 0, 16, 3, 2, 2, 2, 28, 43, 28, 4, 28, 36, 7, 2, 27, 28, 53, 11, 21, 11, 18, 14, 17, 111, 72, 56, 50, 14, 50, 14, 35, 349, 41, 7, 1, 79, 28, 11, 0, 9, 21, 43, 17, 47, 20, 28, 22, 13, 52, 58, 1, 3, 0, 14, 44, 33, 24, 27, 35, 30, 0, 3, 0, 9, 34, 4, 0, 13, 47, 15, 3, 22, 0, 2, 0, 36, 17, 2, 24, 20, 1, 64, 6, 2, 0, 2, 3, 2, 14, 2, 9, 8, 46, 39, 7, 3, 1, 3, 21, 2, 6, 2, 1, 2, 4, 4, 0, 19, 0, 13, 4, 159, 52, 19, 3, 21, 2, 31, 47, 21, 1, 2, 0, 185, 46, 42, 3, 37, 47, 21, 0, 60, 42, 14, 0, 72, 26, 38, 6, 186, 43, 117, 63, 32, 7, 3, 0, 3, 7, 2, 1, 2, 23, 16, 0, 2, 0, 95, 7, 3, 38, 17, 0, 2, 0, 29, 0, 11, 39, 8, 0, 22, 0, 12, 45, 20, 0, 19, 72, 264, 8, 2, 36, 18, 0, 50, 29, 113, 6, 2, 1, 2, 37, 22, 0, 26, 5, 2, 1, 2, 31, 15, 0, 328, 18, 16, 0, 2, 12, 2, 33, 125, 0, 80, 921, 103, 110, 18, 195, 2637, 96, 16, 1071, 18, 5, 4026, 582, 8634, 568, 8, 30, 18, 78, 18, 29, 19, 47, 17, 3, 32, 20, 6, 18, 689, 63, 129, 74, 6, 0, 67, 12, 65, 1, 2, 0, 29, 6135, 9, 1237, 43, 8, 8936, 3, 2, 6, 2, 1, 2, 290, 16, 0, 30, 2, 3, 0, 15, 3, 9, 395, 2309, 106, 6, 12, 4, 8, 8, 9, 5991, 84, 2, 70, 2, 1, 3, 0, 3, 1, 3, 3, 2, 11, 2, 0, 2, 6, 2, 64, 2, 3, 3, 7, 2, 6, 2, 27, 2, 3, 2, 4, 2, 0, 4, 6, 2, 339, 3, 24, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 30, 2, 24, 2, 7, 1845, 30, 7, 5, 262, 61, 147, 44, 11, 6, 17, 0, 322, 29, 19, 43, 485, 27, 757, 6, 2, 3, 2, 1, 2, 14, 2, 196, 60, 67, 8, 0, 1205, 3, 2, 26, 2, 1, 2, 0, 3, 0, 2, 9, 2, 3, 2, 0, 2, 0, 7, 0, 5, 0, 2, 0, 2, 0, 2, 2, 2, 1, 2, 0, 3, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 1, 2, 0, 3, 3, 2, 6, 2, 3, 2, 3, 2, 0, 2, 9, 2, 16, 6, 2, 2, 4, 2, 16, 4421, 42719, 33, 4153, 7, 221, 3, 5761, 15, 7472, 16, 621, 2467, 541, 1507, 4938, 6, 4191], nonASCIIidentifierStartChars = "\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u052F\u0531-\u0556\u0559\u0560-\u0588\u05D0-\u05EA\u05EF-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u0860-\u086A\u0870-\u0887\u0889-\u088E\u08A0-\u08C9\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0980\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u09FC\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0AF9\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C58-\u0C5A\u0C5D\u0C60\u0C61\u0C80\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D04-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D54-\u0D56\u0D5F-\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E86-\u0E8A\u0E8C-\u0EA3\u0EA5\u0EA7-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u16EE-\u16F8\u1700-\u1711\u171F-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1878\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4C\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1C80-\u1C88\u1C90-\u1CBA\u1CBD-\u1CBF\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1CFA\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2118-\u211D\u2124\u2126\u2128\u212A-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2160-\u2188\u2C00-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309B-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312F\u3131-\u318E\u31A0-\u31BF\u31F0-\u31FF\u3400-\u4DBF\u4E00-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA69D\uA6A0-\uA6EF\uA717-\uA71F\uA722-\uA788\uA78B-\uA7CA\uA7D0\uA7D1\uA7D3\uA7D5-\uA7D9\uA7F2-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA8FD\uA8FE\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uA9E0-\uA9E4\uA9E6-\uA9EF\uA9FA-\uA9FE\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA7E-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB5A\uAB5C-\uAB69\uAB70-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC", reservedWords = { 3: "abstract boolean byte char class double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized throws transient volatile", 5: "class enum extends super const export import", 6: "enum", strict: "implements interface let package private protected public static yield", strictBind: "eval arguments" }, ecma5AndLessKeywords = "break case catch continue debugger default do else finally for function if return switch throw try var while with null true false instanceof typeof void delete new in this", keywords$1 = { 5: ecma5AndLessKeywords, "5module": ecma5AndLessKeywords + " export import", 6: ecma5AndLessKeywords + " const class extends export import super" }, keywordRelationalOperator = /^in(stanceof)?$/, nonASCIIidentifierStart = new RegExp("[" + nonASCIIidentifierStartChars + "]"), nonASCIIidentifier = new RegExp("[" + nonASCIIidentifierStartChars + "\u200C\u200D\xB7\u0300-\u036F\u0387\u0483-\u0487\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u0610-\u061A\u064B-\u0669\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\u06F0-\u06F9\u0711\u0730-\u074A\u07A6-\u07B0\u07C0-\u07C9\u07EB-\u07F3\u07FD\u0816-\u0819\u081B-\u0823\u0825-\u0827\u0829-\u082D\u0859-\u085B\u0898-\u089F\u08CA-\u08E1\u08E3-\u0903\u093A-\u093C\u093E-\u094F\u0951-\u0957\u0962\u0963\u0966-\u096F\u0981-\u0983\u09BC\u09BE-\u09C4\u09C7\u09C8\u09CB-\u09CD\u09D7\u09E2\u09E3\u09E6-\u09EF\u09FE\u0A01-\u0A03\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A66-\u0A71\u0A75\u0A81-\u0A83\u0ABC\u0ABE-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AE2\u0AE3\u0AE6-\u0AEF\u0AFA-\u0AFF\u0B01-\u0B03\u0B3C\u0B3E-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B55-\u0B57\u0B62\u0B63\u0B66-\u0B6F\u0B82\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD7\u0BE6-\u0BEF\u0C00-\u0C04\u0C3C\u0C3E-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C62\u0C63\u0C66-\u0C6F\u0C81-\u0C83\u0CBC\u0CBE-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CE2\u0CE3\u0CE6-\u0CEF\u0CF3\u0D00-\u0D03\u0D3B\u0D3C\u0D3E-\u0D44\u0D46-\u0D48\u0D4A-\u0D4D\u0D57\u0D62\u0D63\u0D66-\u0D6F\u0D81-\u0D83\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2\u0DF3\u0E31\u0E34-\u0E3A\u0E47-\u0E4E\u0E50-\u0E59\u0EB1\u0EB4-\u0EBC\u0EC8-\u0ECE\u0ED0-\u0ED9\u0F18\u0F19\u0F20-\u0F29\u0F35\u0F37\u0F39\u0F3E\u0F3F\u0F71-\u0F84\u0F86\u0F87\u0F8D-\u0F97\u0F99-\u0FBC\u0FC6\u102B-\u103E\u1040-\u1049\u1056-\u1059\u105E-\u1060\u1062-\u1064\u1067-\u106D\u1071-\u1074\u1082-\u108D\u108F-\u109D\u135D-\u135F\u1369-\u1371\u1712-\u1715\u1732-\u1734\u1752\u1753\u1772\u1773\u17B4-\u17D3\u17DD\u17E0-\u17E9\u180B-\u180D\u180F-\u1819\u18A9\u1920-\u192B\u1930-\u193B\u1946-\u194F\u19D0-\u19DA\u1A17-\u1A1B\u1A55-\u1A5E\u1A60-\u1A7C\u1A7F-\u1A89\u1A90-\u1A99\u1AB0-\u1ABD\u1ABF-\u1ACE\u1B00-\u1B04\u1B34-\u1B44\u1B50-\u1B59\u1B6B-\u1B73\u1B80-\u1B82\u1BA1-\u1BAD\u1BB0-\u1BB9\u1BE6-\u1BF3\u1C24-\u1C37\u1C40-\u1C49\u1C50-\u1C59\u1CD0-\u1CD2\u1CD4-\u1CE8\u1CED\u1CF4\u1CF7-\u1CF9\u1DC0-\u1DFF\u200C\u200D\u203F\u2040\u2054\u20D0-\u20DC\u20E1\u20E5-\u20F0\u2CEF-\u2CF1\u2D7F\u2DE0-\u2DFF\u302A-\u302F\u3099\u309A\u30FB\uA620-\uA629\uA66F\uA674-\uA67D\uA69E\uA69F\uA6F0\uA6F1\uA802\uA806\uA80B\uA823-\uA827\uA82C\uA880\uA881\uA8B4-\uA8C5\uA8D0-\uA8D9\uA8E0-\uA8F1\uA8FF-\uA909\uA926-\uA92D\uA947-\uA953\uA980-\uA983\uA9B3-\uA9C0\uA9D0-\uA9D9\uA9E5\uA9F0-\uA9F9\uAA29-\uAA36\uAA43\uAA4C\uAA4D\uAA50-\uAA59\uAA7B-\uAA7D\uAAB0\uAAB2-\uAAB4\uAAB7\uAAB8\uAABE\uAABF\uAAC1\uAAEB-\uAAEF\uAAF5\uAAF6\uABE3-\uABEA\uABEC\uABED\uABF0-\uABF9\uFB1E\uFE00-\uFE0F\uFE20-\uFE2F\uFE33\uFE34\uFE4D-\uFE4F\uFF10-\uFF19\uFF3F\uFF65]");
       function isInAstralSet(code, set) {
         for (var pos = 65536, i2 = 0;i2 < set.length; i2 += 2) {
@@ -7120,7 +7119,7 @@ var require_jiti = __commonJS((exports, module) => {
         return this.keywords.test(word) && (type = keywords[word]), this.finishToken(type, word);
       };
       Parser.acorn = { Parser, version: "8.12.1", defaultOptions, Position, SourceLocation, getLineInfo, Node, TokenType, tokTypes: types$1, keywordTypes: keywords, TokContext, tokContexts: types, isIdentifierChar, isIdentifierStart, Token, isNewLine, lineBreak, lineBreakG, nonASCIIwhitespace };
-      const external_node_module_namespaceObject = __require("node:module"), external_node_fs_namespaceObject = __require("node:fs");
+      const external_node_module_namespaceObject = import.meta.require("module"), external_node_fs_namespaceObject = import.meta.require("fs");
       String.fromCharCode;
       const TRAILING_SLASH_RE = /\/$|\/\?|\/#/, JOIN_LEADING_SLASH_RE = /^\.?\//;
       function hasTrailingSlash(input = "", respectQueryAndFragment) {
@@ -7222,7 +7221,7 @@ var require_jiti = __commonJS((exports, module) => {
       }, basename = function(p2, extension) {
         const lastSegment = normalizeWindowsPath(p2).split("/").pop();
         return extension && lastSegment.endsWith(extension) ? lastSegment.slice(0, -extension.length) : lastSegment;
-      }, external_node_url_namespaceObject = __require("node:url"), external_node_assert_namespaceObject = __require("node:assert"), external_node_process_namespaceObject = __require("node:process"), external_node_path_namespaceObject = __require("node:path"), external_node_v8_namespaceObject = __require("node:v8"), external_node_util_namespaceObject = __require("node:util"), BUILTIN_MODULES = new Set(external_node_module_namespaceObject.builtinModules);
+      }, external_node_url_namespaceObject = import.meta.require("url"), external_node_assert_namespaceObject = import.meta.require("assert"), external_node_process_namespaceObject = import.meta.require("process"), external_node_path_namespaceObject = import.meta.require("path"), external_node_v8_namespaceObject = import.meta.require("v8"), external_node_util_namespaceObject = import.meta.require("util"), BUILTIN_MODULES = new Set(external_node_module_namespaceObject.builtinModules);
       function normalizeSlash(path) {
         return path.replace(/\\/g, "/");
       }
@@ -7806,7 +7805,7 @@ var require_jiti = __commonJS((exports, module) => {
         const lastChar = path[path.length - 1];
         return lastChar === "/" || lastChar === "\\";
       }
-      const package_namespaceObject = { rE: "2.0.0" }, external_node_crypto_namespaceObject = __require("node:crypto"), dist_r = Object.create(null), E = (e) => globalThis.process?.env || globalThis.Deno?.env.toObject() || globalThis.__env__ || (e ? dist_r : globalThis), dist_s = new Proxy(dist_r, { get: (e, o) => E()[o] ?? dist_r[o], has: (e, o) => (o in E()) || (o in dist_r), set: (e, o, i2) => (E(true)[o] = i2, true), deleteProperty(e, o) {
+      const package_namespaceObject = { rE: "2.0.0" }, external_node_crypto_namespaceObject = import.meta.require("crypto"), dist_r = Object.create(null), E = (e) => globalThis.process?.env || globalThis.Deno?.env.toObject() || globalThis.__env__ || (e ? dist_r : globalThis), dist_s = new Proxy(dist_r, { get: (e, o) => E()[o] ?? dist_r[o], has: (e, o) => (o in E()) || (o in dist_r), set: (e, o, i2) => (E(true)[o] = i2, true), deleteProperty(e, o) {
         if (!o)
           return false;
         return delete E(true)[o], true;
@@ -7833,7 +7832,7 @@ var require_jiti = __commonJS((exports, module) => {
         if (e)
           e[1];
       })();
-      const external_node_tty_namespaceObject = __require("node:tty"), hasColors = external_node_tty_namespaceObject?.WriteStream?.prototype?.hasColors?.() ?? false, base_format = (open, close) => {
+      const external_node_tty_namespaceObject = import.meta.require("tty"), hasColors = external_node_tty_namespaceObject?.WriteStream?.prototype?.hasColors?.() ?? false, base_format = (open, close) => {
         if (!hasColors)
           return (input) => input;
         const openCode = `[${open}m`, closeCode = `[${close}m`;
@@ -7950,7 +7949,7 @@ var require_jiti = __commonJS((exports, module) => {
         } catch {
         }
       }
-      const external_node_perf_hooks_namespaceObject = __require("node:perf_hooks"), external_node_vm_namespaceObject = __require("node:vm");
+      const external_node_perf_hooks_namespaceObject = import.meta.require("perf_hooks"), external_node_vm_namespaceObject = import.meta.require("vm");
       var external_node_vm_default = __webpack_require__.n(external_node_vm_namespaceObject);
       function jitiRequire(ctx, id, opts) {
         const cache2 = ctx.parentCache || {};
@@ -8028,9 +8027,9 @@ var require_jiti = __commonJS((exports, module) => {
           if (nmDir && (0, external_node_fs_namespaceObject.existsSync)(nmDir))
             return join(nmDir, ".cache/jiti");
           let _tmpDir = (0, external_node_os_namespaceObject.tmpdir)();
-          if (process.env.TMPDIR && _tmpDir === process.cwd() && !process.env.JITI_RESPECT_TMPDIR_ENV) {
-            const _env = process.env.TMPDIR;
-            delete process.env.TMPDIR, _tmpDir = (0, external_node_os_namespaceObject.tmpdir)(), process.env.TMPDIR = _env;
+          if (_tmpDir === process.cwd() && !process.env.JITI_RESPECT_TMPDIR_ENV) {
+            const _env = "/var/folders/zf/b3pcnw653p73plxd47gp9yyw0000gn/T/";
+            delete "/var/folders/zf/b3pcnw653p73plxd47gp9yyw0000gn/T/", _tmpDir = (0, external_node_os_namespaceObject.tmpdir)(), process.env.TMPDIR = _env;
           }
           return join(_tmpDir, "jiti");
         }(ctx)), ctx.opts.fsCache)
@@ -10374,25 +10373,25 @@ var require_babel = __commonJS((exports, module) => {
         return FastObject(o);
       };
     }, assert: (module2) => {
-      module2.exports = __require("assert");
+      module2.exports = import.meta.require("assert");
     }, fs: (module2) => {
-      module2.exports = __require("fs");
+      module2.exports = import.meta.require("fs");
     }, module: (module2) => {
-      module2.exports = __require("module");
+      module2.exports = import.meta.require("module");
     }, os: (module2) => {
-      module2.exports = __require("os");
+      module2.exports = import.meta.require("os");
     }, path: (module2) => {
-      module2.exports = __require("path");
+      module2.exports = import.meta.require("path");
     }, process: (module2) => {
-      module2.exports = __require("process");
+      module2.exports = import.meta.require("process");
     }, tty: (module2) => {
-      module2.exports = __require("tty");
+      module2.exports = import.meta.require("tty");
     }, url: (module2) => {
-      module2.exports = __require("url");
+      module2.exports = import.meta.require("url");
     }, util: (module2) => {
-      module2.exports = __require("util");
+      module2.exports = import.meta.require("util");
     }, v8: (module2) => {
-      module2.exports = __require("v8");
+      module2.exports = import.meta.require("v8");
     }, "./node_modules/.deno/@babel+core@7.25.2/node_modules/@babel/core/lib/config/caching.js": (__unused_webpack_module, exports2, __webpack_require__2) => {
       function _gensync() {
         const data = __webpack_require__2("./node_modules/.deno/gensync@1.0.0-beta.2/node_modules/gensync/index.js");
@@ -35761,7 +35760,7 @@ var require_babel = __commonJS((exports, module) => {
         } });
       } } }));
       var plugin_syntax_jsx_lib = __webpack_require__("./node_modules/.deno/@babel+plugin-syntax-jsx@7.24.7/node_modules/@babel/plugin-syntax-jsx/lib/index.js"), plugin_transform_react_jsx_lib = __webpack_require__("./node_modules/.deno/@babel+plugin-transform-react-jsx@7.25.2/node_modules/@babel/plugin-transform-react-jsx/lib/index.js");
-      const external_node_url_namespaceObject = __require("node:url");
+      const external_node_url_namespaceObject = import.meta.require("url");
       var template_lib = __webpack_require__("./node_modules/.deno/@babel+template@7.25.0/node_modules/@babel/template/lib/index.js");
       function importMetaUrlPlugin(_ctx, opts) {
         return { name: "import-meta-url", visitor: { Program(path) {
@@ -35943,7 +35942,7 @@ var require_babel = __commonJS((exports, module) => {
 var require_require_cache = __commonJS((exports, module) => {
   function q3(r) {
     for (let e of r)
-      delete __require.cache[e];
+      delete import.meta.require.cache[e];
   }
   var i = Object.defineProperty;
   var a = Object.getOwnPropertyDescriptor;
@@ -35967,14 +35966,14 @@ var require_require_cache = __commonJS((exports, module) => {
 
 // node_modules/@tailwindcss/oxide-darwin-arm64/tailwindcss-oxide.darwin-arm64.node
 var require_tailwindcss_oxide_darwin_arm64 = __commonJS((exports, module) => {
-  module.exports = __require("./tailwindcss-oxide.darwin-arm64-0zdn544t.node");
+  module.exports = import.meta.require("./tailwindcss-oxide.darwin-arm64-0zdn544t.node");
 });
 
 // node_modules/picocolors/picocolors.js
 var require_picocolors = __commonJS((exports, module) => {
   var argv = process.argv || [];
   var env = process.env;
-  var isColorSupported = !(("NO_COLOR" in env) || argv.includes("--no-color")) && (("FORCE_COLOR" in env) || argv.includes("--color") || process.platform === "win32" || __require != null && __require("tty").isatty(1) && env.TERM !== "dumb" || ("CI" in env));
+  var isColorSupported = !(("NO_COLOR" in env) || argv.includes("--no-color")) && (("FORCE_COLOR" in env) || argv.includes("--color") || process.platform === "win32" || import.meta.require != null && import.meta.require("tty").isatty(1) && env.TERM !== "dumb" || ("CI" in env));
   var formatter = (open, close, replace = open) => (input) => {
     let string = "" + input;
     let index = string.indexOf(close, open.length);
@@ -39426,8 +39425,8 @@ var require_previous_map = __commonJS((exports, module) => {
       return window.atob(str);
     }
   }
-  var { existsSync: existsSync2, readFileSync: readFileSync2 } = __require("fs");
-  var { dirname, join: join2 } = __require("path");
+  var { existsSync: existsSync2, readFileSync: readFileSync2 } = import.meta.require("fs");
+  var { dirname, join: join2 } = import.meta.require("path");
   var { SourceMapConsumer, SourceMapGenerator } = require_source_map();
 
   class PreviousMap {
@@ -39542,9 +39541,9 @@ var require_previous_map = __commonJS((exports, module) => {
 // node_modules/postcss/lib/input.js
 var require_input = __commonJS((exports, module) => {
   var { nanoid } = require_non_secure();
-  var { isAbsolute, resolve } = __require("path");
+  var { isAbsolute, resolve } = import.meta.require("path");
   var { SourceMapConsumer, SourceMapGenerator } = require_source_map();
-  var { fileURLToPath, pathToFileURL } = __require("url");
+  var { fileURLToPath, pathToFileURL } = import.meta.require("url");
   var CssSyntaxError = require_css_syntax_error();
   var PreviousMap = require_previous_map();
   var terminalHighlight = require_terminal_highlight();
@@ -39925,9 +39924,9 @@ var require_fromJSON = __commonJS((exports, module) => {
 
 // node_modules/postcss/lib/map-generator.js
 var require_map_generator = __commonJS((exports, module) => {
-  var { dirname, relative, resolve, sep } = __require("path");
+  var { dirname, relative, resolve, sep } = import.meta.require("path");
   var { SourceMapConsumer, SourceMapGenerator } = require_source_map();
-  var { pathToFileURL } = __require("url");
+  var { pathToFileURL } = import.meta.require("url");
   var Input = require_input();
   var sourceMapAvailable = Boolean(SourceMapConsumer && SourceMapGenerator);
   var pathAvailable = Boolean(dirname && resolve && relative && sep);
@@ -41538,7 +41537,7 @@ var require_postcss = __commonJS((exports, module) => {
       if (console && console.warn && !warningPrinted) {
         warningPrinted = true;
         console.warn(name + ": postcss.plugin was deprecated. Migration guide:\n" + "https://evilmartians.com/chronicles/postcss-8-plugin-migration");
-        if (process.env.LANG && process.env.LANG.startsWith("cn")) {
+        if ("en_US.UTF-8".startsWith("cn")) {
           console.warn(name + `: \u91CC\u9762 postcss.plugin \u88AB\u5F03\u7528. \u8FC1\u79FB\u6307\u5357:
 ` + "https://www.w3ctech.com/topic/2226");
         }
@@ -41591,13 +41590,13 @@ var require_postcss = __commonJS((exports, module) => {
 
 // node_modules/@tailwindcss/node/dist/index.mjs
 var import_enhanced_resolve = __toESM(require_lib2(), 1);
-import * as c from "node:module";
-import { pathToFileURL as W3 } from "node:url";
+import * as c from "module";
+import { pathToFileURL as W3 } from "url";
 
 // node_modules/jiti/lib/jiti.mjs
 var import_jiti = __toESM(require_jiti(), 1);
 var import_babel = __toESM(require_babel(), 1);
-import { createRequire as createRequire2 } from "node:module";
+import { createRequire } from "module";
 function onError(err) {
   throw err;
 }
@@ -41608,16 +41607,16 @@ function createJiti(id, opts = {}) {
   return import_jiti.default(id, opts, {
     onError,
     nativeImport,
-    createRequire: createRequire2
+    createRequire
   });
 }
 var nativeImport = (id) => import(id);
 
 // node_modules/@tailwindcss/node/dist/index.mjs
-import E2 from "node:fs";
-import D3 from "node:fs/promises";
-import v2, { dirname as h2, extname as N3 } from "node:path";
-import { pathToFileURL as y2 } from "node:url";
+import E2 from "fs";
+import D3 from "fs/promises";
+import v2, { dirname as h2, extname as N3 } from "path";
+import { pathToFileURL as y2 } from "url";
 
 // node_modules/tailwindcss/dist/chunk-2PMIOWFK.mjs
 var f = { inherit: "inherit", current: "currentColor", transparent: "transparent", black: "#000", white: "#fff", slate: { 50: "#f8fafc", 100: "#f1f5f9", 200: "#e2e8f0", 300: "#cbd5e1", 400: "#94a3b8", 500: "#64748b", 600: "#475569", 700: "#334155", 800: "#1e293b", 900: "#0f172a", 950: "#020617" }, gray: { 50: "#f9fafb", 100: "#f3f4f6", 200: "#e5e7eb", 300: "#d1d5db", 400: "#9ca3af", 500: "#6b7280", 600: "#4b5563", 700: "#374151", 800: "#1f2937", 900: "#111827", 950: "#030712" }, zinc: { 50: "#fafafa", 100: "#f4f4f5", 200: "#e4e4e7", 300: "#d4d4d8", 400: "#a1a1aa", 500: "#71717a", 600: "#52525b", 700: "#3f3f46", 800: "#27272a", 900: "#18181b", 950: "#09090b" }, neutral: { 50: "#fafafa", 100: "#f5f5f5", 200: "#e5e5e5", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373", 600: "#525252", 700: "#404040", 800: "#262626", 900: "#171717", 950: "#0a0a0a" }, stone: { 50: "#fafaf9", 100: "#f5f5f4", 200: "#e7e5e4", 300: "#d6d3d1", 400: "#a8a29e", 500: "#78716c", 600: "#57534e", 700: "#44403c", 800: "#292524", 900: "#1c1917", 950: "#0c0a09" }, red: { 50: "#fef2f2", 100: "#fee2e2", 200: "#fecaca", 300: "#fca5a5", 400: "#f87171", 500: "#ef4444", 600: "#dc2626", 700: "#b91c1c", 800: "#991b1b", 900: "#7f1d1d", 950: "#450a0a" }, orange: { 50: "#fff7ed", 100: "#ffedd5", 200: "#fed7aa", 300: "#fdba74", 400: "#fb923c", 500: "#f97316", 600: "#ea580c", 700: "#c2410c", 800: "#9a3412", 900: "#7c2d12", 950: "#431407" }, amber: { 50: "#fffbeb", 100: "#fef3c7", 200: "#fde68a", 300: "#fcd34d", 400: "#fbbf24", 500: "#f59e0b", 600: "#d97706", 700: "#b45309", 800: "#92400e", 900: "#78350f", 950: "#451a03" }, yellow: { 50: "#fefce8", 100: "#fef9c3", 200: "#fef08a", 300: "#fde047", 400: "#facc15", 500: "#eab308", 600: "#ca8a04", 700: "#a16207", 800: "#854d0e", 900: "#713f12", 950: "#422006" }, lime: { 50: "#f7fee7", 100: "#ecfccb", 200: "#d9f99d", 300: "#bef264", 400: "#a3e635", 500: "#84cc16", 600: "#65a30d", 700: "#4d7c0f", 800: "#3f6212", 900: "#365314", 950: "#1a2e05" }, green: { 50: "#f0fdf4", 100: "#dcfce7", 200: "#bbf7d0", 300: "#86efac", 400: "#4ade80", 500: "#22c55e", 600: "#16a34a", 700: "#15803d", 800: "#166534", 900: "#14532d", 950: "#052e16" }, emerald: { 50: "#ecfdf5", 100: "#d1fae5", 200: "#a7f3d0", 300: "#6ee7b7", 400: "#34d399", 500: "#10b981", 600: "#059669", 700: "#047857", 800: "#065f46", 900: "#064e3b", 950: "#022c22" }, teal: { 50: "#f0fdfa", 100: "#ccfbf1", 200: "#99f6e4", 300: "#5eead4", 400: "#2dd4bf", 500: "#14b8a6", 600: "#0d9488", 700: "#0f766e", 800: "#115e59", 900: "#134e4a", 950: "#042f2e" }, cyan: { 50: "#ecfeff", 100: "#cffafe", 200: "#a5f3fc", 300: "#67e8f9", 400: "#22d3ee", 500: "#06b6d4", 600: "#0891b2", 700: "#0e7490", 800: "#155e75", 900: "#164e63", 950: "#083344" }, sky: { 50: "#f0f9ff", 100: "#e0f2fe", 200: "#bae6fd", 300: "#7dd3fc", 400: "#38bdf8", 500: "#0ea5e9", 600: "#0284c7", 700: "#0369a1", 800: "#075985", 900: "#0c4a6e", 950: "#082f49" }, blue: { 50: "#eff6ff", 100: "#dbeafe", 200: "#bfdbfe", 300: "#93c5fd", 400: "#60a5fa", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8", 800: "#1e40af", 900: "#1e3a8a", 950: "#172554" }, indigo: { 50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc", 400: "#818cf8", 500: "#6366f1", 600: "#4f46e5", 700: "#4338ca", 800: "#3730a3", 900: "#312e81", 950: "#1e1b4b" }, violet: { 50: "#f5f3ff", 100: "#ede9fe", 200: "#ddd6fe", 300: "#c4b5fd", 400: "#a78bfa", 500: "#8b5cf6", 600: "#7c3aed", 700: "#6d28d9", 800: "#5b21b6", 900: "#4c1d95", 950: "#2e1065" }, purple: { 50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe", 400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7e22ce", 800: "#6b21a8", 900: "#581c87", 950: "#3b0764" }, fuchsia: { 50: "#fdf4ff", 100: "#fae8ff", 200: "#f5d0fe", 300: "#f0abfc", 400: "#e879f9", 500: "#d946ef", 600: "#c026d3", 700: "#a21caf", 800: "#86198f", 900: "#701a75", 950: "#4a044e" }, pink: { 50: "#fdf2f8", 100: "#fce7f3", 200: "#fbcfe8", 300: "#f9a8d4", 400: "#f472b6", 500: "#ec4899", 600: "#db2777", 700: "#be185d", 800: "#9d174d", 900: "#831843", 950: "#500724" }, rose: { 50: "#fff1f2", 100: "#ffe4e6", 200: "#fecdd3", 300: "#fda4af", 400: "#fb7185", 500: "#f43f5e", 600: "#e11d48", 700: "#be123c", 800: "#9f1239", 900: "#881337", 950: "#4c0519" } };
@@ -44770,8 +44769,8 @@ var rr = { "--colors": "--color", "--accent-color": "--color", "--backdrop-blur"
 var ir = /^[a-z][a-zA-Z0-9/%._-]*$/;
 
 // node_modules/@tailwindcss/node/dist/index.mjs
-import d2 from "node:fs/promises";
-import m from "node:path";
+import d2 from "fs/promises";
+import m from "path";
 async function T2(e, r) {
   for (let i of r) {
     let t = `${e}${i}`;
@@ -44906,7 +44905,7 @@ var import_require_cache = __toESM(require_require_cache(), 1);
 function isMusl() {
   if (!process.report || typeof process.report.getReport !== "function") {
     try {
-      const lddPath = __require("child_process").execSync("which ldd").toString().trim();
+      const lddPath = import.meta.require("child_process").execSync("which ldd").toString().trim();
       return readFileSync(lddPath, "utf8").includes("musl");
     } catch (e) {
       return true;
@@ -44917,8 +44916,8 @@ function isMusl() {
   }
 }
 var __dirname = "/Users/jasper/dev/with-tailwindcss/node_modules/@tailwindcss/oxide";
-var { existsSync, readFileSync } = __require("fs");
-var { join } = __require("path");
+var { existsSync, readFileSync } = import.meta.require("fs");
+var { join } = import.meta.require("path");
 var { platform, arch } = process;
 var nativeBinding = null;
 var localFileExisted = false;
@@ -45215,7 +45214,7 @@ var Root = import_postcss.default.Root;
 var Node = import_postcss.default.Node;
 
 // node_modules/@tailwindcss/postcss/dist/index.mjs
-import d3 from "node:path";
+import d3 from "path";
 function b2() {
   let o2 = new WeakSet;
   function l2(t) {
@@ -45309,84 +45308,10 @@ function brisaTailwindcss() {
   };
 }
 
-// node_modules/brisa-adapter-vercel/dist/index.js
-import q3 from "path";
-import j4 from "fs/promises";
-function D4({ memory: V3, regions: x5, maxDuration: B3 } = {}) {
-  return { name: "vercel", async adapt({ CONFIG: Y3, ROOT_DIR: M5, BUILD_DIR: P5, I18N_CONFIG: G3 }, h3) {
-    const Q5 = G3?.defaultLocale, b3 = q3.join(M5, ".vercel"), Z3 = q3.join(b3, "output"), R3 = q3.join(Z3, "config.json"), _4 = q3.join(M5, "out"), C3 = q3.join(P5, "public"), U3 = q3.join(Z3, "static");
-    switch (Y3.output) {
-      case "static": {
-        await X3(), await E3();
-        break;
-      }
-      case "node": {
-        await X3(), await N4();
-        break;
-      }
-      default: {
-        console.error('Vercel adapter only supports "node" and "static" output. Please set the "output" field in the brisa.config.ts file');
-        return;
-      }
-    }
-    async function X3() {
-      await j4.rm(b3, { recursive: true, force: true }), await j4.mkdir(b3), await j4.mkdir(Z3);
-    }
-    async function N4() {
-      const z4 = q3.join(Z3, "functions", "fn.func"), W4 = q3.join(z4, "package.json"), $3 = q3.join(z4, ".vc-config.json");
-      if (await E3({ useFileSystem: true }), !await j4.exists(z4))
-        await j4.mkdir(z4, { recursive: true });
-      const A3 = { runtime: "nodejs20.x", handler: "build/server.js", launcherType: "Nodejs", experimentalResponseStreaming: true, environment: { USE_HANDLER: "true" } };
-      if (V3)
-        A3.memory = V3;
-      if (x5)
-        A3.regions = x5;
-      if (B3)
-        A3.maxDuration = B3;
-      await j4.writeFile(W4, '{"type":"module"}', "utf-8"), await j4.writeFile($3, JSON.stringify(A3, null, 2), "utf-8");
-      const k2 = q3.join(z4, "build");
-      await j4.cp(P5, k2, { recursive: true });
-    }
-    async function E3({ useFileSystem: z4 = false } = {}) {
-      let W4 = "";
-      const $3 = Array.from(h3?.values() ?? []).flat(), A3 = Y3.trailingSlash ? "/" : "", k2 = Y3.trailingSlash ? "" : "/", w3 = $3.flatMap((H4) => {
-        const K3 = H4.replace(/^\//, "");
-        if (K3 === "index.html")
-          return Q5 ? [{ src: "/", status: 308, headers: { Location: `/${Q5}` } }] : [{ src: "/", dest: "/index.html" }];
-        const J4 = K3.replace(S4, ""), y4 = `/${J4}${A3}`, L3 = `/${J4}${k2}`;
-        if (J4.endsWith("_404"))
-          W4 = Q5 ? `/${Q5}/_404` : "/_404";
-        return [{ src: y4, dest: L3 }, { headers: { Location: y4 }, src: L3, status: 308 }];
-      }), T3 = {};
-      for (let H4 of $3) {
-        const K3 = H4.replace(/^\//, "");
-        if (K3 === "index.html" && Q5)
-          continue;
-        T3[K3] = { path: K3.replace(S4, "") };
-      }
-      if (process.env.VERCEL_SKEW_PROTECTION_ENABLED)
-        w3.push({ src: "/.*", has: [{ type: "header", key: "Sec-Fetch-Dest", value: "document" }], headers: { "Set-Cookie": `__vdpl=${process.env.VERCEL_DEPLOYMENT_ID}; Path=${Y3.basePath ?? ""}/; SameSite=Strict; Secure; HttpOnly` }, continue: true });
-      if (z4)
-        w3.push(...[{ handle: "filesystem" }, { src: "/.*", dest: "/fn" }]);
-      if (!z4 && W4)
-        w3.push({ handle: "filesystem" }, { src: "/(.*)", status: 404, dest: W4 });
-      const m2 = { version: 3, routes: w3, overrides: T3 };
-      await j4.writeFile(R3, JSON.stringify(m2, null, 2)), await j4.mkdir(U3);
-      const v4 = z4 ? C3 : _4;
-      if (await j4.exists(v4))
-        await j4.cp(v4, U3, { recursive: true });
-    }
-  } };
-}
-var S4 = /(\/?index)?\.html?$/;
-
 // brisa.config.ts
 var brisa_config_default = {
-  output: "node",
-  integrations: [brisaTailwindcss()],
-  outputAdapter: D4({
-    external: ["lightningcss"]
-  })
+  output: "static",
+  integrations: [brisaTailwindcss()]
 };
 export {
   brisa_config_default as default

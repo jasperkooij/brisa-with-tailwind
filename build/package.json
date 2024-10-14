@@ -5,7 +5,7 @@
   "main": "server.js",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "bun run server.js"
   },
   "dependencies": {
     "brisa": "0.1.1"
