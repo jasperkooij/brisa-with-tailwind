@@ -9,5 +9,6 @@ export default {
   integrations: [tailwindcss()],
   outputAdapter: vercel({
     // see below for options that can be set here
+    external: ['lightningcss'],
   })
 } satisfies Configuration;
