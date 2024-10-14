@@ -1,9 +1,0 @@
-{
-  "runtime": "nodejs20.x",
-  "handler": "build/server.js",
-  "launcherType": "Nodejs",
-  "experimentalResponseStreaming": true,
-  "environment": {
-    "USE_HANDLER": "true"
-  }
-}

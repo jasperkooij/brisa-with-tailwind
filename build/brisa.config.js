@@ -45308,10 +45308,83 @@ function brisaTailwindcss() {
   };
 }
 
+// node_modules/brisa-adapter-vercel/dist/index.js
+import q3 from "path";
+import j4 from "fs/promises";
+function D4({ memory: V3, regions: x5, maxDuration: B3 } = {}) {
+  return { name: "vercel", async adapt({ CONFIG: Y3, ROOT_DIR: M5, BUILD_DIR: P5, I18N_CONFIG: G3 }, h3) {
+    const Q5 = G3?.defaultLocale, b3 = q3.join(M5, ".vercel"), Z3 = q3.join(b3, "output"), R3 = q3.join(Z3, "config.json"), _4 = q3.join(M5, "out"), C3 = q3.join(P5, "public"), U3 = q3.join(Z3, "static");
+    switch (Y3.output) {
+      case "static": {
+        await X3(), await E3();
+        break;
+      }
+      case "node": {
+        await X3(), await N4();
+        break;
+      }
+      default: {
+        console.error('Vercel adapter only supports "node" and "static" output. Please set the "output" field in the brisa.config.ts file');
+        return;
+      }
+    }
+    async function X3() {
+      await j4.rm(b3, { recursive: true, force: true }), await j4.mkdir(b3), await j4.mkdir(Z3);
+    }
+    async function N4() {
+      const z4 = q3.join(Z3, "functions", "fn.func"), W4 = q3.join(z4, "package.json"), $3 = q3.join(z4, ".vc-config.json");
+      if (await E3({ useFileSystem: true }), !await j4.exists(z4))
+        await j4.mkdir(z4, { recursive: true });
+      const A3 = { runtime: "nodejs20.x", handler: "build/server.js", launcherType: "Nodejs", experimentalResponseStreaming: true, environment: { USE_HANDLER: "true" } };
+      if (V3)
+        A3.memory = V3;
+      if (x5)
+        A3.regions = x5;
+      if (B3)
+        A3.maxDuration = B3;
+      await j4.writeFile(W4, '{"type":"module"}', "utf-8"), await j4.writeFile($3, JSON.stringify(A3, null, 2), "utf-8");
+      const k2 = q3.join(z4, "build");
+      await j4.cp(P5, k2, { recursive: true });
+    }
+    async function E3({ useFileSystem: z4 = false } = {}) {
+      let W4 = "";
+      const $3 = Array.from(h3?.values() ?? []).flat(), A3 = Y3.trailingSlash ? "/" : "", k2 = Y3.trailingSlash ? "" : "/", w3 = $3.flatMap((H4) => {
+        const K3 = H4.replace(/^\//, "");
+        if (K3 === "index.html")
+          return Q5 ? [{ src: "/", status: 308, headers: { Location: `/${Q5}` } }] : [{ src: "/", dest: "/index.html" }];
+        const J4 = K3.replace(S4, ""), y4 = `/${J4}${A3}`, L3 = `/${J4}${k2}`;
+        if (J4.endsWith("_404"))
+          W4 = Q5 ? `/${Q5}/_404` : "/_404";
+        return [{ src: y4, dest: L3 }, { headers: { Location: y4 }, src: L3, status: 308 }];
+      }), T3 = {};
+      for (let H4 of $3) {
+        const K3 = H4.replace(/^\//, "");
+        if (K3 === "index.html" && Q5)
+          continue;
+        T3[K3] = { path: K3.replace(S4, "") };
+      }
+      if (process.env.VERCEL_SKEW_PROTECTION_ENABLED)
+        w3.push({ src: "/.*", has: [{ type: "header", key: "Sec-Fetch-Dest", value: "document" }], headers: { "Set-Cookie": `__vdpl=${process.env.VERCEL_DEPLOYMENT_ID}; Path=${Y3.basePath ?? ""}/; SameSite=Strict; Secure; HttpOnly` }, continue: true });
+      if (z4)
+        w3.push(...[{ handle: "filesystem" }, { src: "/.*", dest: "/fn" }]);
+      if (!z4 && W4)
+        w3.push({ handle: "filesystem" }, { src: "/(.*)", status: 404, dest: W4 });
+      const m2 = { version: 3, routes: w3, overrides: T3 };
+      await j4.writeFile(R3, JSON.stringify(m2, null, 2)), await j4.mkdir(U3);
+      const v4 = z4 ? C3 : _4;
+      if (await j4.exists(v4))
+        await j4.cp(v4, U3, { recursive: true });
+    }
+  } };
+}
+var S4 = /(\/?index)?\.html?$/;
+
 // brisa.config.ts
 var brisa_config_default = {
   output: "static",
-  integrations: [brisaTailwindcss()]
+  integrations: [brisaTailwindcss()],
+  outputAdapter: D4({}),
+  external: ["lightningcss"]
 };
 export {
   brisa_config_default as default

@@ -2,12 +2,13 @@
   "version": 3,
   "routes": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "dest": "/fn"
+      "src": "/",
+      "dest": "/index.html"
     }
   ],
-  "overrides": {}
+  "overrides": {
+    "index.html": {
+      "path": ""
+    }
+  }
 }

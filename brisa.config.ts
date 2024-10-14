@@ -7,4 +7,8 @@ import vercel from 'brisa-adapter-vercel';
 export default {
   output: 'static', // or 'static'
   integrations: [tailwindcss()],
+  outputAdapter: vercel({
+    // see below for options that can be set here
+  }),
+  external: ['lightningcss'],
 } satisfies Configuration;
